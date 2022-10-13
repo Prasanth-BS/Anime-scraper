@@ -1,0 +1,32 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.search-results-container {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 1fr;
+    width: 100%;
+    grid-gap: 10px;
+    /* height: 15rem; */
+    background-color: aquamarine;
+    overflow: scroll;
+}
+
+.search-result {
+    display: flex;
+    flex-direction: column;
+    background-color: bisque;
+    width: clamp(123px, 25vw, 184px);
+    /* min-width: 123;
+    max-width: 200px; */
+}
+
+.search-result > img {
+    width: 100%;
+    aspect-ratio: 3/4;
+}
+
+
