@@ -1,7 +1,11 @@
 const baseURL = "https://api.consumet.org/anime"
+// const fetchURL = "https://api.consumet.org/anime/zoro/info?id="
+//https://api.consumet.org/anime/zoro/info?id=spy-x-family-part-2-18152
+// https://api.consumet.org/anime/zoro/watch?episodeId=%22spy-x-family-part-2-18152$episode$94360%22
 
 const search = document.getElementById('search-anime')
 const searchBtn = document.getElementById('search-btn')
+// const searchResult = document.getElementById
 
 
 function addGlobalEventListener(event, target, callback) {
@@ -11,27 +15,37 @@ function addGlobalEventListener(event, target, callback) {
 }
 
 addGlobalEventListener('click', '#search-btn', (e) => {
-    // window.location.href = "view-anime.html"
-    const searchResultsContainer = document.querySelector('.search-results-container')
-    searchResultsContainer.innerHTML=""
-    // console.log(searchResultsContainer)
-    // console.log("sdfasdfa")
-        fetch(`${baseURL}/zoro/${search.value}`)
+    fetch(`${baseURL}/zoro/${search.value}`)
         .then(res => res.json())
         .then(data => {
-            console.log(data)
-            data.results.forEach(result => {
-                searchResultsContainer.innerHTML += `
-                <div class='search-result'>
-                    <img id=${result.id} src=${result.image}>
-                    <p>${result.title}</p> 
-                </div>`
-                console.log(result)
-            })
+            localStorage.setItem('searchResults', JSON.stringify(data))
+            console.log(JSON.parse(localStorage.getItem('searchResults')))
         })
+        window.location.href='results.html'
     
 })
 
+const fetchAnimeInfo = (animeId) => {
+    fetch(`${ baseURL }/zoro/info?id=${ animeId }`)
+    .then(res => res.json())
+    .then(data => {
+        console.log(data.description)
+        const animeContainer = document.querySelector(".anime-container")
+        animeContainer.innerHTML = 
+        `<div class="title">${data.title}</div>
+         <div class="description"> ${data.description} </div>
+         <div class="poster">
+            <img src="${data.image}">
+         </div>
+         <div class="episodes">${data.totalEpisodes}</div>
+         <div class="read-now">Read now</div>`
+    })
+}
+
 addGlobalEventListener('click', '.search-result > img', (e) => {
-    // window.location.href = "view-anime.html"
+    fetchAnimeInfo(e.target.id)
 })
+
+// document.addEventListener('click' , e => {
+//     console.log(e.target.id)
+// })
