@@ -5,8 +5,6 @@ const baseURL = "https://api.consumet.org/anime"
 
 const search = document.getElementById('search-anime')
 const searchBtn = document.getElementById('search-btn')
-// const searchResult = document.getElementById
-
 
 function addGlobalEventListener(event, target, callback) {
     document.addEventListener(event, e => {
