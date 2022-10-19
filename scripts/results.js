@@ -9,8 +9,9 @@ function addGlobalEventListener(event, target, callback) {
 
 window.addEventListener('load', e => {
     searchResultsData = JSON.parse(localStorage.getItem('searchResults'))
-    console.log(searchResultsContainer)
-    console.log(searchResultsData)
+    // console.log("at results page" + searchResultsData)
+    // console.log(searchResultsContainer)
+    // console.log(searchResultsData)
     searchResultsContainer.innerHTML = ""
     searchResultsData.results.forEach( result => {
         searchResultsContainer.innerHTML += `
