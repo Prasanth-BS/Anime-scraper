@@ -13,15 +13,17 @@ function addGlobalEventListener(event, target, callback) {
 }
 
 addGlobalEventListener('click', '#search-btn', (e) => {
-    fetch(`${baseURL}/zoro/${search.value}`)
-        .then(res => res.json())
-        .then(data => {
-            // console.log("after fetch" + data)
-            localStorage.setItem('searchResults', JSON.stringify(data))
-            // console.log("after stored " + JSON.parse(localStorage.getItem('searchResults')))
+    localStorage.setItem('search-key', search.value)
+    window.location.href="results.html"
+    // fetch(`${baseURL}/zoro/${search.value}`)
+    //     .then(res => res.json())
+    //     .then(data => {
+    //         // console.log("after fetch" + data)
+    //         localStorage.setItem('searchResults', JSON.stringify(data))
+    //         // console.log("after stored " + JSON.parse(localStorage.getItem('searchResults')))
             
-            window.location.href='results.html'
-        })
+    //         window.location.href='results.html'
+    //     })
         
     
 })

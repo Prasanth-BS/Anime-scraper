@@ -1,0 +1,50 @@
+
+.anime-container {
+    display:grid;
+    grid-template-columns: 3fr 1fr;
+    grid-template-rows: minmax(3rem, 5rem) minmax(9rem, 13rem) minmax(3rem, 4rem);
+    grid-template-areas: "title title"
+                         "description image"
+                         "episodes play-now";
+    width: 90%;
+    /* height: 20vw; */
+    margin: 0 auto;
+}
+
+.anime-container > * {
+    min-width: 0px;
+    min-height: 0px;
+}
+
+.anime-container > .title {
+    grid-area: title;
+    font-size: 3rem;
+}
+
+.anime-container > .poster {
+    grid-area: image;
+    width: 100%;
+    
+    /* aspect-ratio: 1/4; */
+}
+.poster > img {
+    width: 100%;
+    object-fit: contain;
+    height: 100%;
+    /* object-fit: contain; */
+}
+
+.anime-container > .description {
+    grid-area: description;
+    font-size: .9rem;
+    text-align: left;
+    padding: 0 10px;
+}
+
+.anime-container > .episodes {
+    grid-area: episodes;
+}
+
+.anime-container > .play-now {
+    grid-area: play-now;
+}
