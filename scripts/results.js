@@ -1,6 +1,9 @@
 const baseURL = "https://api.consumet.org/anime"
 
 const searchResultsContainer = document.querySelector('.search-results-container')
+const search = document.getElementById('search-btn')
+const searchBar = document.getElementById('search-anime')
+const searchElement = document.getElementById('search-element')
 
 function addGlobalEventListener(event, target, callback) {
     document.addEventListener(event, e => {
@@ -9,8 +12,11 @@ function addGlobalEventListener(event, target, callback) {
 }
 
 
-window.addEventListener('load', e => {
+const showResults = () => {
+    
     searchKey = localStorage.getItem('search-key')
+    searchElement.innerHTML = searchKey
+    searchResultsContainer.innerHTML = ""
     fetch(`${baseURL}/zoro/${searchKey}`)
     .then(response => response.json())
     .then(data => {
@@ -19,19 +25,18 @@ window.addEventListener('load', e => {
             <div class="search-result">
                 <img id=${result.id} src=${result.image}>
                 <p>${result.title}</p>
+                <div class="color-divider"></div>
             </div>`            
         })
     })
-    // searchResultsData = JSON.parse(localStorage.getItem('searchResults'))
-    // // console.log("at results page" + searchResultsData)
-    // // console.log(searchResultsContainer)
-    // // console.log(searchResultsData)
-    // searchResultsContainer.innerHTML = ""
-    // searchResultsData.results.forEach( result => {
-    //     searchResultsContainer.innerHTML += `
-    //     <div class="search-result">
-    //         <img id=${result.id} src=${result.image}>
-    //         <p>${result.title}</p>
-    //     </div>` 
-    // }) 
+}
+
+window.addEventListener('load', e => {
+    showResults() 
+})
+
+addGlobalEventListener('click', '#search-btn', e => {
+    localStorage.setItem('search-key', searchBar.value)
+    showResults()
+
 })

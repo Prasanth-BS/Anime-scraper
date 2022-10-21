@@ -3,7 +3,7 @@ const baseURL = "https://api.consumet.org/anime"
 //https://api.consumet.org/anime/zoro/info?id=spy-x-family-part-2-18152
 // https://api.consumet.org/anime/zoro/watch?episodeId=%22spy-x-family-part-2-18152$episode$94360%22
 
-const search = document.getElementById('search-anime')
+const searchBar= document.getElementById('search-anime')
 const searchBtn = document.getElementById('search-btn')
 
 function addGlobalEventListener(event, target, callback) {
@@ -13,7 +13,7 @@ function addGlobalEventListener(event, target, callback) {
 }
 
 addGlobalEventListener('click', '#search-btn', (e) => {
-    localStorage.setItem('search-key', search.value)
+    localStorage.setItem('search-key', searchBar.value)
     window.location.href="results.html"
     // fetch(`${baseURL}/zoro/${search.value}`)
     //     .then(res => res.json())
