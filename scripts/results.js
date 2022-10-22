@@ -40,3 +40,8 @@ addGlobalEventListener('click', '#search-btn', e => {
     showResults()
 
 })
+
+addGlobalEventListener('click', '.search-result > img', e => {
+    localStorage.setItem('anime-id', e.target.id)
+    window.location.href = "view-anime.html"
+})

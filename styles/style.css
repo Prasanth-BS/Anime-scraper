@@ -6,7 +6,7 @@
     --dark-shadow: #161616;
 
     --purple: #9b45b2;
-
+    
     --light: #ffffff;
 }
 
@@ -32,6 +32,13 @@ header {
     width: 100%;
     padding: .75rem;   
     box-shadow: 0 0px 10px 2.5px var(--dark-shadow); 
+}
+
+button {
+    cursor: pointer;    
+    background: transparent; 
+    border: none;
+    color: white;
 }
 
 .navbar {
@@ -71,8 +78,6 @@ header {
 
 .search-btn {
     aspect-ratio: 1/1;
-    cursor: pointer;    
-    background: transparent; 
-    border: none;
+    color: black;
 }
 

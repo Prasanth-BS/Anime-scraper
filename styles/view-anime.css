@@ -1,5 +1,76 @@
+.anime-wrapper {
+    position: relative;
+}
+
+.wallpaper {
+    background-image: url(https://img.zorores.com/_r/300x400/100/88/bd/88bd17534dc4884f23027035d23d74e5/88bd17534dc4884f23027035d23d74e5.jpg);
+    height: 325px;
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+}
 
 .anime-container {
+    display: grid;
+    grid-template-columns: 3fr minmax(180px, 200px);
+    grid-template-rows: 60px minmax(180px, 1fr) 40px;
+    grid-template-areas: "title title"
+                         "desc poster"
+                         "total-episodes total-episodes";
+
+    position: relative;
+    z-index: 1;
+    top: calc(325px / 2);
+    width: 70vw;
+    margin: 0 auto;
+}
+
+.title {
+    grid-area: title;
+}
+
+.poster {
+    grid-area: poster;
+}
+
+.poster > img {
+    width: 100%;
+    object-fit: contain;
+}
+
+.description {
+    grid-area: desc;
+    max-height: 450px;
+}
+
+/* .description:has(.view-more:hover) {
+    max-width: none;
+}
+
+.view-more:hover {
+    background-color: red;
+
+} */
+
+.description-content {
+    overflow-y: hidden;
+    height: 90%;
+}
+
+.view-more__wrapper {
+    height: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.total-episodes {
+    grid-area: total-episodes;
+}
+
+/* .anime-container {
     display:grid;
     grid-template-columns: 3fr 1fr;
     grid-template-rows: minmax(3rem, 5rem) minmax(9rem, 13rem) minmax(3rem, 4rem);
@@ -7,7 +78,6 @@
                          "description image"
                          "episodes play-now";
     width: 90%;
-    /* height: 20vw; */
     margin: 0 auto;
 }
 
@@ -25,13 +95,11 @@
     grid-area: image;
     width: 100%;
     
-    /* aspect-ratio: 1/4; */
 }
 .poster > img {
     width: 100%;
     object-fit: contain;
     height: 100%;
-    /* object-fit: contain; */
 }
 
 .anime-container > .description {
@@ -47,4 +115,4 @@
 
 .anime-container > .play-now {
     grid-area: play-now;
-}
+} */
