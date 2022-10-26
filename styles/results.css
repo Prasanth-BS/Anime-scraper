@@ -18,7 +18,7 @@
     display: grid;
     /* grid-auto-flow: column;
     grid-auto-columns: 1fr; */
-    grid-template-columns: repeat(auto-fit, minmax(170px, 2fr));
+    grid-template-columns: repeat(auto-fit, minmax(170px, 200px));
 
     width: 100%;
     grid-gap: 10px;

@@ -1,25 +1,26 @@
-const baseURL = "https://api.consumet.org/anime"
+// const baseURL = "https://api.consumet.org/anime"
 
 const searchResultsContainer = document.querySelector('.search-results-container')
-const search = document.getElementById('search-btn')
-const searchBar = document.getElementById('search-anime')
+// const search = document.getElementById('search-btn')
+// const searchBar = document.getElementById('search-anime')
 const searchElement = document.getElementById('search-element')
 
-function addGlobalEventListener(event, target, callback) {
-    document.addEventListener(event, e => {
-        if(e.target.matches(target)) callback(e)
-    })
-}
+// function addGlobalEventListener(event, target, callback) {
+//     document.addEventListener(event, e => {
+//         if(e.target.matches(target)) callback(e)
+//     })
+// }
 
 
 const showResults = () => {
     
-    searchKey = localStorage.getItem('search-key')
-    searchElement.innerHTML = searchKey
-    searchResultsContainer.innerHTML = ""
-    fetch(`${baseURL}/zoro/${searchKey}`)
+    const searchKey = localStorage.getItem('search-key')
+    fetch(`${baseURL}/enime/${searchKey}`)
     .then(response => response.json())
     .then(data => {
+        console.log(data)
+        searchElement.innerHTML = searchKey
+        searchResultsContainer.innerHTML = ""
         data.results.forEach(result => {
             searchResultsContainer.innerHTML += `
             <div class="search-result">
@@ -35,11 +36,11 @@ window.addEventListener('load', e => {
     showResults() 
 })
 
-addGlobalEventListener('click', '#search-btn', e => {
-    localStorage.setItem('search-key', searchBar.value)
-    showResults()
+// addGlobalEventListener('click', '#search-btn', e => {
+//     localStorage.setItem('search-key', searchBar.value)
+//     showResults()
 
-})
+// })
 
 addGlobalEventListener('click', '.search-result > img', e => {
     localStorage.setItem('anime-id', e.target.id)
