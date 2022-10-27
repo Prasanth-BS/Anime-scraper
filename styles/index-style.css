@@ -5,7 +5,9 @@
     /* left: calc(50vw - calc(clamp(225px, 50vw ,380px) / 2)); */
 }
 
-
+.home-wrapper {
+    background-image: url(../kKEU2A.jpg);
+}
 
 
 @-moz-document url-prefix() {

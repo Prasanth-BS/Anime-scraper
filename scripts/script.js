@@ -1,4 +1,7 @@
 const baseURL = "https://api.consumet.org/anime"
+let episodes 
+let episodeId
+
 // const fetchURL = "https://api.consumet.org/anime/zoro/info?id="
 //https://api.consumet.org/anime/zoro/info?id=spy-x-family-part-2-18152
 // https://api.consumet.org/anime/zoro/watch?episodeId=%22spy-x-family-part-2-18152$episode$94360%22

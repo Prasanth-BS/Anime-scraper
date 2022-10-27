@@ -36,9 +36,17 @@ window.addEventListener('load', e => {
             <div class="episode" id=${episode.id}>
                 <span>${episode.number}<span> 
              </div>`
+        episodes = data.episodes
         })
 
     })
+})
+
+addGlobalEventListener('click', '.episode', e => {
+    localStorage.setItem('episodeId', e.target.id)
+    // episodeId = e.target.id
+    // console.log(episodeId)
+    window.location.href="play-anime.html"
 })
 
 /* <div class="view-more__wrapper">
