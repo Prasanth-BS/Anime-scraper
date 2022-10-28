@@ -9,6 +9,7 @@ let episodeId
 const searchBar= document.getElementById('search-anime')
 const searchBtn = document.getElementById('search-btn')
 
+
 function addGlobalEventListener(event, target, callback) {
     document.addEventListener(event, e => {
         if(e.target.matches(target)) callback(e)
@@ -18,4 +19,11 @@ function addGlobalEventListener(event, target, callback) {
 addGlobalEventListener('click', '#search-btn', (e) => {
     localStorage.setItem('search-key', searchBar.value)
     window.location.href="results.html"      
+})
+
+searchBar.addEventListener('keypress', e => {
+    if(e.key === 'Enter') {
+        localStorage.setItem('search-key', searchBar.value)
+        window.location.href="results.html"
+    }
 })

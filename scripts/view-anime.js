@@ -34,7 +34,7 @@ window.addEventListener('load', e => {
         data.episodes.forEach(episode => {
             episodeWrapperbody.innerHTML += `
             <div class="episode" id=${episode.id}>
-                <span>${episode.number}<span> 
+                <span id=${episode.id} >${episode.number}<span> 
              </div>`
         episodes = data.episodes
         })
@@ -46,6 +46,11 @@ addGlobalEventListener('click', '.episode', e => {
     localStorage.setItem('episodeId', e.target.id)
     // episodeId = e.target.id
     // console.log(episodeId)
+    window.location.href="play-anime.html"
+})
+
+addGlobalEventListener('click', '.episode > span', e => {
+    localStorage.setItem('episodeId', e.target.id)
     window.location.href="play-anime.html"
 })
 
